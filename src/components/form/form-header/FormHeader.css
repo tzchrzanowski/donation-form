@@ -1,0 +1,26 @@
+.form-header {
+    height: 128px;
+    background-color: #FFDBCB;
+}
+
+.form-header-content-wrapper {
+    padding: 32px 40px 24px 40px;
+}
+.header-main-caption {
+    align-self: stretch;
+    color: #423C66;
+    font-family: 'WorkSansLocal', Work Sans;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 38.4px */
+}
+
+.header-sub-caption {
+    color: #595D7B;
+    font-family: 'InterLocal', Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+}

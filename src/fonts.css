@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'WorkSansLocal';
+    src: url('./assets/fonts/WorkSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RubikLocal';
+    src: url('./assets/fonts/Rubik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'InterLocal';
+    src: url('./assets/fonts/Inter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

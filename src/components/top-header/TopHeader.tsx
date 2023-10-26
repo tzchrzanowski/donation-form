@@ -1,7 +1,7 @@
 import './TopHeader.css';
 import React from "react";
-import logoIcon from 'assets/logo-icon.svg';
-import logoCaption from 'assets/logo-caption.svg';
+import logoIcon from 'assets/icons/logo-icon.svg';
+import logoCaption from 'assets/icons/logo-caption.svg';
 
 export function TopHeader() {
     return(
