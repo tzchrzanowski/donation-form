@@ -1,0 +1,19 @@
+.description-caption {
+    color: #1E2A32;
+    font-family: "WorkSansLocal", Work Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
+    border-radius: 5px;
+    background: #F4F8FA;
+}
+
+.value-caption {
+    color: #1E2A32;
+    font-family: "InterLocal", Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+}

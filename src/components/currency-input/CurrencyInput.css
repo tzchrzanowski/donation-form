@@ -1,0 +1,15 @@
+.input-amount-caption {
+    font-family: 'RubikLocal', Rubik;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 116.667% */
+}
+
+.caption-initial {
+    color: #EEE;
+}
+
+.caption-updated {
+    color: #595D7B;
+}

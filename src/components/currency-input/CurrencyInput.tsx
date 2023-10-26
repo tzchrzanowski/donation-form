@@ -1,4 +1,6 @@
 import React from 'react';
+import dollarIcon from 'assets/icons/dollar-icon.svg';
+import './CurrencyInput.css';
 
 interface CurrencyInputProps {
     value: number,
@@ -6,20 +8,25 @@ interface CurrencyInputProps {
 }
 
 export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) => {
-    const formattedValue = value;
+    const [valueUpdated, setValueUpdated] = React.useState<boolean>(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
         const numericValue = parseFloat(inputValue);
         onChange(numericValue);
+        setValueUpdated(true);
     }
 
-    return <input
-        role={"inputAmount"}
-        type={"number"}
-        value={formattedValue}
-        onChange={handleChange}
-    />
+    return <div className={"input-wrapper flex align-center mt-1.5"}>
+        <img src={dollarIcon} alt={'$'} />
+        <input
+            className={`ml-2 input-amount-caption ${valueUpdated ? 'caption-updated': 'caption-initial' }`}
+            role={"inputAmount"}
+            type={"number"}
+            value={value}
+            onChange={handleChange}
+        />
+    </div>
 };
 
 export default CurrencyInput;
