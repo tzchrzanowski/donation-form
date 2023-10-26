@@ -1,13 +1,4 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #FFF;
-  min-height: 80px;
+  margin-top: 80px;
 }
