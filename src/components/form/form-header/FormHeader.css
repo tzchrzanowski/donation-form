@@ -1,11 +1,41 @@
 .form-header {
-    height: 128px;
     background-color: #FFDBCB;
 }
 
-.form-header-content-wrapper {
-    padding: 32px 40px 24px 40px;
+@media (min-width: 768px) {
+    .form-header {
+        height: 128px;
+    }
+
+    .form-header-content-wrapper {
+        padding: 32px 40px 24px 40px;
+        align-items: flex-start;
+        flex-direction: row;
+    }
+
+    .header-caption {
+        align-items: flex-start;
+    }
 }
+
+@media (max-width: 768px) {
+    .form-header {
+        height: 193px;
+    }
+
+    .form-header-content-wrapper {
+        padding: 16px 24px 28px 24px;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .header-caption {
+        margin-top: 16px;
+        align-items: center;
+    }
+}
+
+
 .header-main-caption {
     align-self: stretch;
     color: #423C66;

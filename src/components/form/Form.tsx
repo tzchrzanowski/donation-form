@@ -8,23 +8,15 @@ import {formatNumberWithTwoDecimalPlaces} from "utils/numberFormat";
 import FormControls from "./form-controls/FormControls";
 import {useTranslation} from "react-i18next";
 
-const Form: React.FC = () => {
-    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+interface FormProps {
+    windowWidth: number;
+}
+
+const Form: React.FC<FormProps> = ({windowWidth}) => {
     const [selectedDate, setSelectedDate] = useState<dateMonthAndYear>(getCurrentDateMonth());
     const [donationAmount, setDonationAmount] = useState<number>(0);
     const formattedValue: string = formatNumberWithTwoDecimalPlaces(donationAmount);
     const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
-
-    React.useEffect(() => {
-        function handleResize() {
-            setWindowWidth(window.innerWidth);
-        }
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     /*
     * on form cancel action:
@@ -42,7 +34,7 @@ const Form: React.FC = () => {
 
     return (
         <div className={"form-container"}>
-            <FormHeader />
+            <FormHeader windowWidth={windowWidth} handleCancelCallback={handleCancel} />
             <div className={"mt-8 ml-10 mr-10 mb-8"}>
                 <form
                     className={"flex flex-col"}
