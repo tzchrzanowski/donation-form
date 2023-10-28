@@ -1,0 +1,20 @@
+{
+  "en": {
+    "translation": {
+      "form-header": {
+        "giving-block": "The giving block",
+        "setup-donation": "Set up your donation goal!"
+      },
+      "buttons-caption": {
+        "can-donate": "I can donate",
+        "every-month-until": "Every month until"
+      },
+      "form-summary": {
+        "total-amount": "Total amount",
+        "you-will-send": "You will be sending ",
+        "every-month": " every month, until ",
+        "thank-you": ". Thank you!"
+      }
+    }
+  }
+}

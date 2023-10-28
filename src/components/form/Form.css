@@ -2,14 +2,7 @@
     width: 100%;
 }
 
-.input-caption {
-    color: #4D6475;
-    font-family: "WorkSansLocal", Work Sans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px; /* 128.571% */
-}
+
 
 .input-wrapper {
     border-radius: 4px;
