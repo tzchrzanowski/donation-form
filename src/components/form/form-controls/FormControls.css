@@ -1,0 +1,42 @@
+.button-caption {
+    text-align: center;
+    font-family: "WorkSansLocal",Work Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+}
+
+.dark-button-caption {
+    color: #FFF;
+}
+
+.light-button-caption {
+    color: #595D7B;
+}
+
+.light-button-border {
+    border-radius: 5px;
+    border: 1px solid #595D7B;
+}
+
+.dark-button-border {
+    border-radius: 5px;
+    background: #423C66;
+}
+
+.btn {
+    flex: 1;
+}
+
+.form-control-section {
+    min-width: 100%;
+}
+
+.form-control-section:first-child {
+    margin-right: 5.5px;
+}
+
+.form-control-section:last-child {
+    margin-right: 5.5px;
+}

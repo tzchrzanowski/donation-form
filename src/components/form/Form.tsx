@@ -9,10 +9,22 @@ import FormControls from "./form-controls/FormControls";
 import {useTranslation} from "react-i18next";
 
 const Form: React.FC = () => {
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
     const [selectedDate, setSelectedDate] = useState<dateMonthAndYear>(getCurrentDateMonth());
     const [donationAmount, setDonationAmount] = useState<number>(0);
     const formattedValue: string = formatNumberWithTwoDecimalPlaces(donationAmount);
     const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
+
+    React.useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     /*
     * on form cancel action:
@@ -47,7 +59,7 @@ const Form: React.FC = () => {
                         </label>
                     </div>
                     <SummaryBlock amountCaption={formattedValue} dateCaption={selectedDate} />
-                    <FormControls handleCancel={handleCancel} handleSubmit={handleSubmit} />
+                    <FormControls handleCancel={handleCancel} windowWidth={windowWidth} />
                 </form>
             </div>
         </div>
