@@ -4,14 +4,13 @@ import './Form.css';
 import FormHeader from "./form-header/FormHeader";
 import {formatNumberWithTwoDecimalPlaces} from "utils/numberFormat";
 import SummaryBlock from "./summary-block/SummaryBlock";
+import {getCurrentDateMonth, dateMonthAndYear} from "../../utils/currentDateHelper";
 
 const Form: React.FC = () => {
-    const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+    const [selectedDate, setSelectedDate] = useState<dateMonthAndYear>(getCurrentDateMonth());
     const [donationAmount, setDonationAmount] = useState<number>(0);
     const [untilDateCaption, setUntilDateCaption] = useState<String>("");
-
     const formattedValue: string = formatNumberWithTwoDecimalPlaces(donationAmount);
-    const dateCaption: string = "August 2024";
 
     return (
         <div className={"form-container"}>
@@ -32,7 +31,7 @@ const Form: React.FC = () => {
                         <span className={"pl-4 mr-2 summary-caption"}>Total amount</span>
                         <span className={"summary-amount"}>${formattedValue}</span>
                     </div>
-                    <SummaryBlock amountCaption={formattedValue} dateCaption={dateCaption} />
+                    <SummaryBlock amountCaption={formattedValue} dateCaption={selectedDate} />
                 </form>
             </div>
 
