@@ -7,7 +7,9 @@
       },
       "buttons-caption": {
         "can-donate": "I can donate",
-        "every-month-until": "Every month until"
+        "every-month-until": "Every month until",
+        "continue": "Continue",
+        "cancel": "Cancel"
       },
       "form-summary": {
         "total-amount": "Total amount",

@@ -1,24 +1,42 @@
 import React, {useState} from 'react';
-import { useTranslation } from 'react-i18next';
 import CurrencyInput from "../currency-input/CurrencyInput";
 import './Form.css';
 import FormHeader from "./form-header/FormHeader";
-import {formatNumberWithTwoDecimalPlaces} from "utils/numberFormat";
 import SummaryBlock from "./summary-block/SummaryBlock";
-import {getCurrentDateMonth, dateMonthAndYear} from "../../utils/currentDateHelper";
+import {getCurrentDateMonth, dateMonthAndYear} from "utils/currentDateHelper";
+import {formatNumberWithTwoDecimalPlaces} from "utils/numberFormat";
+import FormControls from "./form-controls/FormControls";
+import {useTranslation} from "react-i18next";
 
 const Form: React.FC = () => {
-    const { t, i18n } = useTranslation();
     const [selectedDate, setSelectedDate] = useState<dateMonthAndYear>(getCurrentDateMonth());
     const [donationAmount, setDonationAmount] = useState<number>(0);
-    const [untilDateCaption, setUntilDateCaption] = useState<String>("");
     const formattedValue: string = formatNumberWithTwoDecimalPlaces(donationAmount);
+    const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
+
+    /*
+    * on form cancel action:
+    * */
+    const handleCancel = () => {
+        // TODO: no logic as per requirements.
+    }
+
+    /*
+    * on form submit action:
+    * */
+    const handleSubmit = () => {
+        // TODO: no logic as per requirements.
+    }
 
     return (
         <div className={"form-container"}>
             <FormHeader />
             <div className={"mt-8 ml-10 mr-10 mb-8"}>
-                <form className={"flex flex-col"}>
+                <form
+                    className={"flex flex-col"}
+                    onSubmit={()=>handleSubmit()}
+                    data-testid={"form-id"}
+                >
                     <div className={"flex flex-row"}>
                         <label>
                             <CurrencyInput value={donationAmount} onChange={setDonationAmount}/>
@@ -28,11 +46,8 @@ const Form: React.FC = () => {
                             <input />
                         </label>
                     </div>
-                    <div className={"flex flex-row justify-between items-center mt-8 mx-4" }>
-                        <span className={"pl-4 mr-2 summary-caption"}>Total amount</span>
-                        <span className={"summary-amount"}>${formattedValue}</span>
-                    </div>
                     <SummaryBlock amountCaption={formattedValue} dateCaption={selectedDate} />
+                    <FormControls handleCancel={handleCancel} handleSubmit={handleSubmit} />
                 </form>
             </div>
         </div>
