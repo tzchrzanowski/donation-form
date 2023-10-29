@@ -15,7 +15,7 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({windowWidth}) => {
     const [selectedDate, setSelectedDate] = useState<dateMonthAndYear>(getCurrentDateMonth());
-    const [donationAmount, setDonationAmount] = useState<number>(0.00);
+    const [donationAmount, setDonationAmount] = useState<number>(0);
     const formattedValue: string = formatNumberWithTwoDecimalPlaces(donationAmount);
     const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
 

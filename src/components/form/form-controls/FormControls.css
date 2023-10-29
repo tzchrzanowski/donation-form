@@ -22,7 +22,7 @@
 
 .dark-button-border {
     border-radius: 5px;
-    background: #423C66;
+    border-radius: 5px;
 }
 
 .btn {
@@ -39,4 +39,24 @@
 
 .form-control-section:last-child {
     margin-right: 5.5px;
+}
+
+.light-btn-bg:hover {
+    background: rgba(178, 167, 244, 0.10);
+}
+
+.light-btn-bg:active {
+    background: rgba(178, 167, 244, 0.25);
+}
+
+.dark-btn-bg {
+    background: #423C66;
+}
+
+.dark-btn-bg:hover {
+    background: #645D93;
+}
+
+.dark-btn-bg:active {
+    background: #241E47;
 }

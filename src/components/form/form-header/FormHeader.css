@@ -24,6 +24,12 @@
 }
 
 @media (max-width: 768px) {
+    .x-button:hover {
+        padding: 8px;
+        border-radius: 10px;
+        background: #F2D0C1;
+    }
+
     .form-header {
         height: 193px;
     }

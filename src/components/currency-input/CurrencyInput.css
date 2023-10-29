@@ -4,16 +4,28 @@
     font-style: normal;
     font-weight: 500;
     line-height: 28px; /* 116.667% */
+    color: #595D7B;
+}
+
+.input-border {
+    border-radius: 4px;
+    border: 1px solid #E9EEF2;
+}
+
+.input-border:focus-within {
+    border: 1px solid #423C66;
 }
 
 .input-wrapper {
-    border-radius: 4px;
-    border: 1px solid #E9EEF2;
     background: #FFF;
 
     padding: 16px 16px 16px 8px;
     gap: 8px;
     align-self: stretch;
+}
+
+.input-outline {
+    outline: none;
 }
 
 .caption-initial {
@@ -33,6 +45,9 @@
     line-height: 18px; /* 128.571% */
 }
 
+.input-box{
+
+}
 @media (min-width: 768px) {
     .amount-input-container {
         margin-right: 12px;

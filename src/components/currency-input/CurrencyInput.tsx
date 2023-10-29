@@ -11,6 +11,20 @@ interface CurrencyInputProps {
 export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) => {
     const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
     const [valueUpdated, setValueUpdated] = React.useState<boolean>(false);
+    const [formattedInputValue, setFormattedInputValue] = React.useState<String>("0.00");
+    const [isEditing, setIsEditing] = React.useState<boolean>(false);
+
+    React.useEffect(()=> {
+        if(value !== null) {
+            setFormattedInputValue(value.toLocaleString('en-US'));
+        }else {
+            setFormattedInputValue('');
+        }
+    }, [value]);
+
+    const handleBlur = () => {
+        setIsEditing(false);
+    }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
@@ -21,15 +35,33 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) =
 
     return <div className={"flex flex-col amount-input-container items-start"}>
         <span className={"input-caption"}>{t('can-donate')}</span>
-        <div className={"input-wrapper flex align-center mt-1.5"}>
+        <div
+            onClick={()=> setIsEditing(true)}
+            className={"input-border input-wrapper flex align-center mt-1.5"}
+        >
             <img src={dollarIcon} alt={'$'} />
-            <input
-                className={`ml-2 input-amount-caption w-full ${valueUpdated ? 'caption-updated': 'caption-initial' }`}
-                role={"inputAmount"}
-                type={"number"}
-                value={value}
-                onChange={handleChange}
-            />
+            {
+                isEditing ? (
+                        <input
+                            className={`ml-2 input-outline input-amount-caption w-full ${valueUpdated ? 'caption-updated': 'caption-initial' }`}
+                            role={"inputAmount"}
+                            type={"number"}
+                            placeholder={"0.00"}
+                            value={value !== 0 ? value: ""}
+                            step={"1"}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                        />
+                ) : (
+                    <div onClick={()=> setIsEditing(true)}>
+                        <span
+                            className={`ml-2 input-amount-caption w-full ${valueUpdated ? 'caption-updated': 'caption-initial' }`}
+                        >
+                            {formattedInputValue}
+                        </span>
+                    </div>
+                )
+            }
         </div>
     </div>
 };

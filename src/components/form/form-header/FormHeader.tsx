@@ -14,11 +14,16 @@ const FormHeader: React.FC<FormHeaderProps> = ({windowWidth, handleCancelCallbac
 
     return (
         <div className={"form-header"} data-testid={"form-header"}>
-            {windowWidth < 768 && <div
-                data-testid={"cancel-x-button"}
-                className={"cursor-pointer z-10 absolute top-0 right-0 mt-4 mr-6"}
-                onClick={handleCancelCallback}
-            ><img src={xIcon} alt={"X"} /></div>}
+            {
+                windowWidth < 768 &&
+                <div
+                    className={"px-2 py-2 x-button z-10 absolute top-0 right-0 mt-2 mr-3"}
+                    data-testid={"cancel-x-button"}
+                    onClick={handleCancelCallback}
+                >
+                    <img className={""} src={xIcon} alt={"X"} />
+                </div>
+            }
             <div className={"form-header-content-wrapper flex"}>
                 <img src={givingIcon} alt={"giving-icon"} data-testid={"giving-icon-id"} />
                 <div className={"flex flex-col justify-center header-caption ml-5"}>
