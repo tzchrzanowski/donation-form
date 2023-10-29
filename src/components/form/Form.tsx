@@ -3,8 +3,7 @@ import CurrencyInput from "../currency-input/CurrencyInput";
 import './Form.css';
 import FormHeader from "./form-header/FormHeader";
 import SummaryBlock from "./summary-block/SummaryBlock";
-import {getCurrentDateMonth, dateMonthAndYear} from "utils/currentDateHelper";
-import {formatNumberWithTwoDecimalPlaces} from "utils/numberFormat";
+import {getCurrentDateMonth, dateMonthAndYear} from "utils/dateHelpers";
 import FormControls from "./form-controls/FormControls";
 import {useTranslation} from "react-i18next";
 import MonthYearSelector from "../month-year-selector/MonthYearSelector";
@@ -16,7 +15,6 @@ interface FormProps {
 const Form: React.FC<FormProps> = ({windowWidth}) => {
     const [selectedDate, setSelectedDate] = useState<dateMonthAndYear>(getCurrentDateMonth());
     const [donationAmount, setDonationAmount] = useState<number>(0);
-    const formattedValue: string = formatNumberWithTwoDecimalPlaces(donationAmount);
     const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
 
     /*
@@ -47,10 +45,13 @@ const Form: React.FC<FormProps> = ({windowWidth}) => {
                             <CurrencyInput value={donationAmount} onChange={setDonationAmount}/>
                         </label>
                         <label className={"label label-month-selector"}>
-                            <MonthYearSelector currentFormattedDateObject={selectedDate} changeMonthCallback={setSelectedDate} />
+                            <MonthYearSelector
+                                currentFormattedDateObject={selectedDate}
+                                changeMonthCallback={setSelectedDate}
+                            />
                         </label>
                     </div>
-                    <SummaryBlock amountCaption={formattedValue} dateCaption={selectedDate} />
+                    <SummaryBlock donationPerMonthAmount={donationAmount} dateObject={selectedDate} />
                     <FormControls handleCancel={handleCancel} windowWidth={windowWidth} />
                 </form>
             </div>

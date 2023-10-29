@@ -1,5 +1,5 @@
 import React from 'react';
-import {dateMonthAndYear} from "utils/currentDateHelper";
+import {dateMonthAndYear, getCurrentDateMonth, getNextMonth, getPreviousMonth} from "utils/dateHelpers"
 import { useTranslation } from 'react-i18next';
 import "./MonthYearSelector.css";
 import leftArrow from "assets/icons/left-arrow-icon.svg";
@@ -10,21 +10,37 @@ interface MonthYearSelectorProps {
     changeMonthCallback: (date: dateMonthAndYear)=> void,
 }
 
-export const MonthYearSelector: React.FC<MonthYearSelectorProps> = ({currentFormattedDateObject, changeMonthCallback}) => {
+export const MonthYearSelector: React.FC<MonthYearSelectorProps> = ({
+    currentFormattedDateObject,
+    changeMonthCallback,
+}) => {
     const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
+    const currentDate = getCurrentDateMonth();
+
     /*
     * Reduce amount of months by one
     * */
     const decreaseMonth = () => {
-        console.log("reducing month..");
+        const previousMonth = getPreviousMonth(currentFormattedDateObject);
+        changeMonthCallback(previousMonth);
     }
 
     /*
     * Increase amount of months by one
     * */
     const increaseMonth = () => {
-        console.log("increasing month...");
+        const newMonth = getNextMonth(currentFormattedDateObject);
+        changeMonthCallback(newMonth);
     }
+
+    /*
+    * Checks if user tries to select month that is in the past
+    * */
+    const isPastMonth = (year: number, month: number) => {
+        if (year < currentDate.year) return true;
+        if (year === currentDate.year && month < currentDate.monthNumber) return true;
+        return false;
+    };
 
     return (<div className={"flex flex-col month-selector-container items-start"}>
         <span className={"input-caption"}>{t("every-month-until")}</span>

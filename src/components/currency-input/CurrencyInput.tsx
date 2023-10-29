@@ -28,7 +28,10 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) =
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
-        const numericValue = parseFloat(inputValue);
+        let numericValue = parseFloat(inputValue);
+        if (numericValue < 0) {
+            numericValue = 0;
+        }
         onChange(numericValue);
         setValueUpdated(true);
     }
@@ -57,7 +60,7 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) =
                         <span
                             className={`ml-2 input-amount-caption w-full ${valueUpdated ? 'caption-updated': 'caption-initial' }`}
                         >
-                            {formattedInputValue}
+                            {valueUpdated ? formattedInputValue : "0.00"}
                         </span>
                     </div>
                 )
