@@ -11,8 +11,8 @@ test('Rendering CurrencyInput component', () => {
     render(
         <CurrencyInput value={0} onChange={mockOnChange} />
     );
-    const inputElement = screen.getByRole('inputAmount');
-    expect(inputElement).toBeInTheDocument();
+    const displayAmountElement = screen.getByTestId('display-value');
+    expect(displayAmountElement).toBeInTheDocument();
 });
 
 
@@ -24,6 +24,9 @@ test('Checking if valid input number is being saved in field', () => {
     render(
         <CurrencyInput value={0} onChange={(value) => (updatedValue = value)} />
     );
+
+    const displayAmountElement = screen.getByTestId('display-value');
+    fireEvent.click(displayAmountElement);
     const inputElement = screen.getByRole('inputAmount');
     fireEvent.change(inputElement, { target: { value: 1234 } });
     expect(updatedValue).toBe(1234);
@@ -37,7 +40,9 @@ test('Checking if invalid input string text is being ignored as intended', () =>
     render(
         <CurrencyInput value={0} onChange={(value) => (updatedValue = value)} />
     );
+    const displayAmountElement = screen.getByTestId('display-value');
+    fireEvent.click(displayAmountElement);
     const inputElement = screen.getByRole('inputAmount');
     fireEvent.change(inputElement, { target: { value: "qwerty" } });
-    expect(updatedValue).toBe(NaN);
+    expect(updatedValue).toBe(0);
 });

@@ -56,7 +56,7 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) =
                             onBlur={handleBlur}
                         />
                 ) : (
-                    <div onClick={()=> setIsEditing(true)}>
+                    <div onClick={()=> setIsEditing(true)} data-testid={"display-value"}>
                         <span
                             className={`ml-2 input-amount-caption w-full ${valueUpdated ? 'caption-updated': 'caption-initial' }`}
                         >
