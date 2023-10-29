@@ -45,7 +45,7 @@ export const MonthYearSelector: React.FC<MonthYearSelectorProps> = ({
     return (<div className={"flex flex-col month-selector-container items-start"}>
         <span className={"input-caption"}>{t("every-month-until")}</span>
         <div className={"month-selector-wrapper flex place-content-between mt-1.5"}>
-            <div className={"flex"} onClick={decreaseMonth}>
+            <div className={"flex"} onClick={decreaseMonth} data-testid={"decrease-id"}>
                 <div className={"icon-wrapper"}>
                     <img className={"arrow-button"} src={leftArrow} alt={"<"} />
                 </div>
@@ -54,7 +54,7 @@ export const MonthYearSelector: React.FC<MonthYearSelectorProps> = ({
                 <span className={"month-caption"}>{currentFormattedDateObject.month}</span>
                 <span className={"year-caption"}>{currentFormattedDateObject.year}</span>
             </div>
-            <div className={"flex"} onClick={increaseMonth}>
+            <div className={"flex"} onClick={increaseMonth} data-testid={"increase-id"}>
                 <div className={"icon-wrapper"}>
                     <img className={"arrow-button"} src={rightArrow} alt={">"} />
                 </div>

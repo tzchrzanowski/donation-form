@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import dollarIcon from 'assets/icons/dollar-icon.svg';
 import './CurrencyInput.css';
+import {formatNumberWithTwoDecimalPlaces} from "../../utils/numberFormat";
 
 interface CurrencyInputProps {
     value: number,
@@ -16,7 +17,8 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) =
 
     React.useEffect(()=> {
         if(value !== null) {
-            setFormattedInputValue(value.toLocaleString('en-US'));
+            // setFormattedInputValue(value.toLocaleString('en-US'));
+            setFormattedInputValue(formatNumberWithTwoDecimalPlaces(value));
         }else {
             setFormattedInputValue('');
         }
@@ -54,6 +56,7 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) =
                             step={"1"}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            data-testid={"input-box-id"}
                         />
                 ) : (
                     <div onClick={()=> setIsEditing(true)} data-testid={"display-value"}>
