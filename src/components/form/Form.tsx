@@ -7,6 +7,7 @@ import {getCurrentDateMonth, dateMonthAndYear} from "utils/currentDateHelper";
 import {formatNumberWithTwoDecimalPlaces} from "utils/numberFormat";
 import FormControls from "./form-controls/FormControls";
 import {useTranslation} from "react-i18next";
+import MonthYearSelector from "../month-year-selector/MonthYearSelector";
 
 interface FormProps {
     windowWidth: number;
@@ -14,7 +15,7 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({windowWidth}) => {
     const [selectedDate, setSelectedDate] = useState<dateMonthAndYear>(getCurrentDateMonth());
-    const [donationAmount, setDonationAmount] = useState<number>(0);
+    const [donationAmount, setDonationAmount] = useState<number>(0.00);
     const formattedValue: string = formatNumberWithTwoDecimalPlaces(donationAmount);
     const { t } = useTranslation('translation', { keyPrefix: 'buttons-caption'});
 
@@ -41,13 +42,12 @@ const Form: React.FC<FormProps> = ({windowWidth}) => {
                     onSubmit={()=>handleSubmit()}
                     data-testid={"form-id"}
                 >
-                    <div className={"flex flex-row"}>
-                        <label>
+                    <div className={"flex input-container"}>
+                        <label className={"label"}>
                             <CurrencyInput value={donationAmount} onChange={setDonationAmount}/>
                         </label>
-                        <label className={"flex flex-col ml-6 w-full items-start"}>
-                            <span className={"input-caption"}>Every month until</span>
-                            <input />
+                        <label className={"label label-month-selector"}>
+                            <MonthYearSelector currentFormattedDateObject={selectedDate} changeMonthCallback={setSelectedDate} />
                         </label>
                     </div>
                     <SummaryBlock amountCaption={formattedValue} dateCaption={selectedDate} />

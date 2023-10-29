@@ -2,16 +2,6 @@
     width: 100%;
 }
 
-.input-wrapper {
-    border-radius: 4px;
-    border: 1px solid #E9EEF2;
-    background: #FFF;
-
-    padding: 16px 16px 16px 8px;
-    gap: 8px;
-    align-self: stretch;
-}
-
 .summary-caption {
     color: #1E2A32;
     font-family: "WorkSansLocal", Work Sans;
@@ -29,4 +19,24 @@
     font-style: normal;
     font-weight: 700;
     line-height: 120%; /* 38.4px */
+}
+
+.label {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+    }
+
+    .label-month-selector {
+        margin-top: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .input-container {
+        flex-direction: row;
+    }
 }
