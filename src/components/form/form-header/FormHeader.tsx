@@ -20,7 +20,7 @@ const FormHeader: React.FC<FormHeaderProps> = ({windowWidth, handleCancelCallbac
                 onClick={handleCancelCallback}
             ><img src={xIcon} alt={"X"} /></div>}
             <div className={"form-header-content-wrapper flex"}>
-                <img src={givingIcon} alt={"giving-icon"} data-testid={"giving-icon-id"}/>
+                <img src={givingIcon} alt={"giving-icon"} data-testid={"giving-icon-id"} />
                 <div className={"flex flex-col justify-center header-caption ml-5"}>
                     <span className={"header-main-caption mb-0.5"} data-testid={"form-header-main-caption-id"}>{t('giving-block')}</span>
                     <span className={"header-sub-caption mt-0.5"} data-testid={"form-header-sub-caption-id"}>{t('setup-donation')}</span>

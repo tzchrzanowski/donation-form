@@ -32,7 +32,6 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({value, onChange}) =
             />
         </div>
     </div>
-
 };
 
 export default CurrencyInput;

@@ -22,6 +22,5 @@ describe('Form Header tests:', () => {
         expect(formHeaderMainCaption).toBeInTheDocument();
         expect(formHeaderSubCaption).toBeInTheDocument();
         expect(formHeaderIcon).toBeInTheDocument();
-
     });
 });

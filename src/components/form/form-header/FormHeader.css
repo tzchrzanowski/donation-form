@@ -16,6 +16,11 @@
     .header-caption {
         align-items: flex-start;
     }
+
+    .header-main-caption {
+        align-self: stretch;
+        font-size: 32px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -33,14 +38,17 @@
         margin-top: 16px;
         align-items: center;
     }
+
+    .header-main-caption {
+        font-size: 24px;
+        text-align: center;
+        font-style: normal;
+    }
 }
 
-
 .header-main-caption {
-    align-self: stretch;
     color: #423C66;
     font-family: 'WorkSansLocal', Work Sans;
-    font-size: 32px;
     font-style: normal;
     font-weight: 600;
     line-height: 120%; /* 38.4px */
