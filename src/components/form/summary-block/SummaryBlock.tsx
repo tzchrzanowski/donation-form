@@ -15,6 +15,7 @@ const SummaryBlock: React.FC<summaryBlockProps> = ({donationPerMonthAmount, date
 
     const totalDonationAmount = calculateTotalDonationAmount(donationPerMonthAmount, dateObject.amountOfMonths);
     const formattedTotalValue: string = formatNumberWithTwoDecimalPlaces(totalDonationAmount);
+    const formattedDonationsPerMonth: string = formatNumberWithTwoDecimalPlaces(donationPerMonthAmount);
 
     return (<div data-testid={"form-summary"}>
         <div className={"flex flex-row justify-between items-center mt-8 mx-4" }>
@@ -23,7 +24,7 @@ const SummaryBlock: React.FC<summaryBlockProps> = ({donationPerMonthAmount, date
         </div>
         <div className={"description-caption px-4 py-5 mt-6"}>
             <span className={"description-caption"}>{t("you-will-send")}</span>
-            <span className={"value-caption"}>$ {formattedTotalValue}</span>
+            <span className={"value-caption"}>$ {formattedDonationsPerMonth}</span>
             <span className={"description-caption"}>{t('every-month')}</span>
             <span className={"value-caption"}>{dateObject.month} {dateObject.year}</span>
             <span className={"description-caption"}>{t('thank-you')}</span>

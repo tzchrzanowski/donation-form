@@ -45,7 +45,6 @@ export function getPreviousMonth(month: dateMonthAndYear): dateMonthAndYear {
     const previousMonth = {...month};
     const currentDate = getCurrentDateMonth();
 
-    console.log(previousMonth);
     if(month.monthNumber == 1) {
         previousMonth.monthNumber = 12;
     } else {
